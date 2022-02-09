@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www/html/ex1:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  php:
+    build: ./php
+    volumes:
+      - ./www/html/ex1:/var/www/html
